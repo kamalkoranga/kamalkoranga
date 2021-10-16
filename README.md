@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Kamalkoranga.
-- 👀 I’m interested im Web Development.
-- 🌱 I’m currently learning front-end web development.
+- 👀 I’m interested im Web Development and python.
+- 🌱 I’m currently learning python.
 - 📫 How to reach me 👉 Kamal_S_Koranga@protonmail.com
 
 <!---
