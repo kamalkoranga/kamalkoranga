@@ -6,5 +6,3 @@
 [![Kamal's github stats](https://github-readme-stats.vercel.app/api?username=Kamalkoranga&count_private=true&show_icons=true&theme=radical&hide_rank=false)](https://github.com/anuraghazra/github-readme-stats)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Kamalkoranga)](https://github.com/anuraghazra/github-readme-stats)
-
-[![willianrod's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=Kamalkoranga)](https://github.com/anuraghazra/github-readme-stats)
