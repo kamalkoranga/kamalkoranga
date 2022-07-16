@@ -45,8 +45,8 @@
 ---
 
 ### :fire: My Stats :
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Kamalkoranga&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Kamalkoranga&layout=compact&theme=default)](https://github.com/anuraghazra/github-readme-stats)
 
-[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=Kamalkoranga&theme=cobalt&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
+[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=Kamalkoranga&theme=default&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
 
-[![Kamal's github stats](https://github-readme-stats.vercel.app/api?username=Kamalkoranga&count_private=true&show_icons=true&theme=radical&hide_rank=false)](https://github.com/anuraghazra/github-readme-stats)
+[![Kamal's github stats](https://github-readme-stats.vercel.app/api?username=Kamalkoranga&count_private=true&show_icons=true&theme=default&hide_rank=false)](https://github.com/anuraghazra/github-readme-stats)
