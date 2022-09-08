@@ -29,7 +29,7 @@ I can build backends that do all the heavy lifting for app or website. I love  t
 <br/>  
 
 
-## Rapidfire  
+## What I'm doing 
 <table><tr><td valign="top" width="50%">
 
 - 🔭 I’m currently working on [Codehub](https://github.com/Kamalkoranga/final_year_project)  
@@ -89,7 +89,7 @@ I can build backends that do all the heavy lifting for app or website. I love  t
 ## Github Stats  
 <table><tr><td valign="top" width="50%">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Kamalkoranga&show_icons=true&count_private=true&hide_border=true" align="left" style="width: 100%" />
+<img src="https://github-readme-stats.vercel.app/api?username=Kamalkoranga&show_icons=true&count_private=true&hide_border=true" align="left" style="width: 100%;" />
 
 </td><td valign="top" width="50%">
 
