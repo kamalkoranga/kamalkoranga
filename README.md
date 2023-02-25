@@ -29,10 +29,10 @@ I can build backends that do all the heavy lifting for app or website. I love  t
 ## What I'm doing 
 <table><tr><td valign="top" width="50%">
 
-- 🔭 I’m currently working on [Codehub](https://github.com/Kamalkoranga/final_year_project)  
+- 🔭 I’m not currently working because of my boards are going on.
   
 
-- 🌱 I’m currently learning Python and PHP  
+- 🌱 I’m currently learning Chemistry :)
   
 
 - ❓ Ask me about anything related to Python stack and related technologies  
