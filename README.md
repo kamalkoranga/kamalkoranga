@@ -32,7 +32,7 @@ I can build backends that do all the heavy lifting for app or website. I love  t
 - 🔭 I’m not currently working because of my boards are going on.
   
 
-- 🌱 I’m currently learning Chemistry :)
+- 🌱 I’m currently learning Computer Science :)
   
 
 - ❓ Ask me about anything related to Python stack and related technologies  
