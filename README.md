@@ -6,7 +6,7 @@
 
 ###
 
-<p align="left">Hello, I'm Kamal, a developer and a first year CSE student, who wants to code and code and code.......</p>
+<p align="left">Hello, I'm Kamal, a developer and a second year CSE student, who wants to code and code and code.......</p>
 
 ###
 
