@@ -14,7 +14,7 @@
 
 ###
 
-<p align="left">✨ Creating bugs since 2021.<br>📚 I'm currently learning Flutter App Development<br>🎯 Goal: [ Math & CS ]</p>
+<p align="left">✨ Creating bugs since 2021.<br>📚 I'm currently working on my side project.<br>🎯 Goal: [ Math & CS ]</p>
 
 ###
 
