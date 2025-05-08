@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="assets/imgs/favicon.png" type="image/png">
+  <link rel="stylesheet" href="index.css">
+  <title>Klka's Dev Portfolio</title>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="logo-holder">
+      <div class="logo">K</div>
+      <div class="logo-text">Portfolio</div>
+    </a>
+
+    <ul id="menu" class>
+      <li><a href="#">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+
+    <a href="#" class="mobile-toggle" onclick="toggleMobileMenu();">
+      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"></path>
+      </svg>
+    </a>
+
+    <a href="mailto:klka@duck.com" class="button cta">Contact Me</a>
+  </nav>
+
+  <button id="dark-mode-toogle">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero container">
+      <div class="hero-left">
+        <div>
+          <h1>Hello</h1>
+          <h1>I'm Kamal</h1>
+          <h1>Koranga</h1>
+          <a href="assets/CV.pdf" target="_blank" class="button">Download CV</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div>
+          <p>Second Year CSE student and Developer, pushing code from India. I love to work on anything code, from
+            building simple todo app to building complex full stack applications. I love to explore other technologies
+            as well. Currently Iam working on one of my hobby projects. Download the CV to know more about my
+            background.</p>
+          <div class="call-to-action">
+            <a target="_blank" href="https://x.com/klkaxkaal" data-tooltip="Twitter" data-position="bottom"
+              class="bottom">TW.</a>
+            <a target="_blank" href="https://www.linkedin.com/in/kamalkoranga" data-tooltip="LinkedIn"
+              data-position="bottom" class="bottom">LN.</a>
+            <a target="_blank" href="https://github.com/kamalkoranga" data-tooltip="GitHub" data-position="bottom"
+              class="bottom">GIT.</a>
+            <a target="_blank" href="https://www.instagram.com/klkaxkaal" data-tooltip="Instagram" data-position="bottom"
+              class="bottom">INSTA.</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="skills container">
+      <h2>
+        <small>Tech Stack</small>
+        Skills Bar
+      </h2>
+      <div class="holder-blue">
+        <div class="left-column">
+          <h3>Tech Stack</h3>
+          <ul>
+            <li>C</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Flask</li>
+            <li>PostgreSQL</li>
+          </ul>
+          <h3>Tools</h3>
+          <ul>
+            <li>Docker</li>
+            <li>VS Code</li>
+            <li>Figma</li>
+            <li>Postman</li>
+          </ul>
+        </div>
+        <div class="right-column">
+          <h3>Skill Bar</h3>
+          <p>HTML</p>
+          <div class="bar">
+            <div class="skill html">90%</div>
+          </div>
+
+          <p>CSS</p>
+          <div class="bar">
+            <div class="skill css">60%</div>
+          </div>
+
+          <p>Python</p>
+          <div class="bar">
+            <div class="skill py">80%</div>
+          </div>
+
+          <p>C</p>
+          <div class="bar">
+            <div class="skill c">70%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects container">
+      <h2>
+        <small>
+          Previous
+        </small>
+        Completed Projects
+      </h2>
+      <div class="projects-grid">
+        <a target="_blank" href="https://codein-z17s.onrender.com" class="project">CodeIn</a>
+        <a target="_blank" href="https://codehub.onrender.com" class="project">CodeHub</a>
+        <a target="_blank" href="https://github.com/Kamalkoranga/CBSE-Result-Finder" class="project">CBSE Result Finder Bot</a>
+        <a target="_blank" href="https://sushiman-frontend.vercel.app" class="project">Sushiman</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="social-icons">
+        <a href="https://github.com/kamalkoranga" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kamalkoranga" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://x.com/klkaxkaal" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.instagram.com/klkaxkaal" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+      </div>
+      <div class="footer-nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="mailto:klka@duck.com">Contact Me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright &copy;2024; Code by <span class="coder">klka</span></p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
