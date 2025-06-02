@@ -1,6 +1,6 @@
 ### Hello there 👋
 
-#### A Second CSE Student by day ☼ and a Developer by night ☾
+#### A CSE Student by day ☼ and a Developer by night ☾
 
 
 - ⚙️ I use daily: `.py`, `.js`, `.html`, `.css`, `.dart`, `.c`.
