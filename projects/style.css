@@ -340,12 +340,23 @@ nav ul li a:hover, .active {
   color: var(--base-700);
   border-radius: 50%;
   transition: all 0.3s ease;
+  
+  i {
+    font-size: 1.5rem;
+    color: black;
+    opacity: 0.9;
+  }
 }
 
 .social-link:hover {
-  background-color: var(--blue);
-  color: white;
-  transform: translateY(-3px);
+  text-decoration: none;
+  background-color: var(--base-700);
+  transition: 0.5s;
+
+  i {
+    color: white;
+    transition: 0.5s;
+  }
 }
 
 .footer-text {
