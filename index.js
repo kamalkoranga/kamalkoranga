@@ -23,3 +23,7 @@ darkModeToogle.addEventListener('click', (e) => {
     localStorage.setItem('darkMode', null);
   }
 });
+
+// get the current year
+const year = new Date().getFullYear();
+document.getElementById("year").innerHTML = year;
