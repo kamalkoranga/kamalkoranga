@@ -362,6 +362,7 @@ h3 {
     padding: 30px;
     display: flex;
     border: 1px solid var(--border);
+    gap: 50px;
 
     @media(max-width:1024px) {
       flex-direction: column;
@@ -372,8 +373,9 @@ h3 {
 
       ul {
         list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
         gap: 10px;
-        margin-right: 100px;
         margin-bottom: 20px;
 
         li {
@@ -496,6 +498,7 @@ h3 {
       background-blend-mode: soft-light;
       transition: all 1s ease-in-out;
       border-radius: 7px;
+      border: 2px solid var(--border);
 
       &:hover {
         background-color: transparent;
