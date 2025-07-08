@@ -27,18 +27,25 @@
   <nav>
     <a href="#" class="logo-holder">
       <div class="logo">
-        <i class="fas fa-code"></i>
+        <img src="assets/imgs/android-chrome-512x512.png" alt="Logo">
       </div>
-      <div class="logo-text">KLKA's Projects</div>
+      <div class="logo-text">Portfolio</div>
     </a>
 
-    <ul>
-      <li><a href="https://klka.me">Home</a></li>
+    <ul id="menu" class>
+      <li><a href="#">Home</a></li>
       <li><a class="active" href="#projects">Projects</a></li>
       <li><a href="#stats">Stats</a></li>
     </ul>
 
-    <a href="mailto:klka@duck.com" class="button">Contact Me</a>
+    <a href="#" class="mobile-toggle" onclick="toggleMobileMenu();">
+      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"></path>
+      </svg>
+    </a>
+
+    <a href="mailto:klka@duck.com" class="button cta">Contact Me</a>
   </nav>
 
   <button id="dark-mode-toggle">
@@ -260,7 +267,7 @@
             <div class="stat-label">Projects Completed</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">6+</div>
+            <div class="stat-number">10+</div>
             <div class="stat-label">Technologies Used</div>
           </div>
           <div class="stat-item">
@@ -268,7 +275,7 @@
             <div class="stat-label">Years of Experience</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">100+</div>
+            <div class="stat-number">700+</div>
             <div class="stat-label">Commits Made</div>
           </div>
         </div>
@@ -298,6 +305,27 @@
   </footer>
 
   <script>
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
+    document.addEventListener("keydown", function (e) {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey &&
+          e.shiftKey &&
+          (e.key === "I" || e.key === "J" || e.key === "C")) ||
+        (e.ctrlKey && e.key === "U") ||
+        (e.ctrlKey && e.key === "u") ||
+        (e.ctrlKey && e.key === "s") ||
+        (e.ctrlKey && e.key === "S")
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    function toggleMobileMenu() {
+      document.getElementById("menu").classList.toggle("active");
+      document.getElementsByClassName("cta")[0].classList.toggle("active");
+    }
+
     // Dark mode toggle
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const body = document.body;
