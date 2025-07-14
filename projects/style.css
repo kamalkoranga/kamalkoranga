@@ -437,6 +437,11 @@ nav {
 .footer-text {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
+
+  .coder {
+    color: var(--base-300);
+    text-decoration: none;
+  }
 }
 
 @media (max-width: 768px) {
