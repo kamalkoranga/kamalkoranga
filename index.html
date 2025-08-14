@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon-16x16.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="stylesheet" href="index.css">
+  <title>Klka's Dev Portfolio</title>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="logo-holder">
+      <div class="logo">
+        <img src="assets/imgs/android-chrome-512x512.png" alt="Logo">
+      </div>
+      <div class="logo-text">Portfolio</div>
+    </a>
+
+    <ul id="menu" class>
+      <li><a href="#">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+
+    <a href="#" class="mobile-toggle" onclick="toggleMobileMenu();">
+      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"></path>
+      </svg>
+    </a>
+
+    <a href="mailto:klka@duck.com" class="button cta">Contact Me</a>
+  </nav>
+
+  <button id="dark-mode-toogle">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero container">
+      <div class="hero-left">
+        <div>
+          <h1>Hello</h1>
+          <h1>I'm Kamal</h1>
+          <h1>Koranga</h1>
+          <a href="assets/Resume.pdf" target="_blank" class="button resume"><i class="fa-solid fa-download"></i> Resume</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div>
+          <p>
+            I'm a third-year Computer Science student and developer from India. I enjoy building apps and full-stack projects, and love exploring new technologies. My experience includes web development and Python scripting. Currently, I'm working on a personal project to sharpen my skills. Download my resume to learn more.
+          </p>
+          <div class="call-to-action">
+            <a target="_blank" href="https://x.com/klkaxkaal" data-tooltip="Twitter" data-position="bottom"
+              class="bottom">TW.</a>
+            <a target="_blank" href="https://www.linkedin.com/in/kamalkoranga" data-tooltip="LinkedIn"
+              data-position="bottom" class="bottom">LN.</a>
+            <a target="_blank" href="https://github.com/kamalkoranga" data-tooltip="GitHub" data-position="bottom"
+              class="bottom">GIT.</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="skills container">
+      <h2>
+        <small>Tech Stack</small>
+        Skills Bar
+      </h2>
+      <div class="holder-blue">
+        <div class="left-column">
+          <h3>Tech Stack</h3>
+          <ul>
+            <li>C</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>ReactJS</li>
+            <li>Python</li>
+            <li>Flask</li>
+            <li>PostgreSQL</li>
+          </ul>
+          <h3>Tools</h3>
+          <ul>
+            <li>Docker</li>
+            <li>VS Code</li>
+            <li>Figma</li>
+            <li>Postman</li>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>Linux</li>
+            <li>CI/CD</li>
+          </ul>
+        </div>
+        <div class="right-column">
+          <h3>Skill Bar</h3>
+          <p>HTML & CSS</p>
+          <div class="bar">
+            <div class="skill htmlcss">87%</div>
+          </div>
+
+          <p>JavaScript</p>
+          <div class="bar">
+            <div class="skill js">65%</div>
+          </div>
+
+          <p>Python</p>
+          <div class="bar">
+            <div class="skill py">80%</div>
+          </div>
+
+          <p>C</p>
+          <div class="bar">
+            <div class="skill c">70%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects container">
+      <h2>
+        <small>
+          Previous
+        </small>
+        Completed Projects
+      </h2>
+      <div class="projects-grid">
+        <a target="_blank" href="https://github.com/kamalkoranga/ilearn-eslide-downloader" class="project">iLearn-Eslide-Downloader</a>
+        <a target="_blank" href="https://kaalpass.klka.me" class="project">KaalPass</a>
+        <a target="_blank" href="https://dochost.klka.me" class="project">DocHost</a>
+        <a target="_blank" href="https://pypi.org/project/daa-music" class="project">DaaMusic</a>
+        <a target="_blank" href="https://binarycss.onrender.com" class="project">BinaryCSS</a>
+        <a target="_blank" href="https://codein-z17s.onrender.com" class="project">CodeIn</a>
+        <a target="_blank" href="https://codehub.onrender.com" class="project">CodeHub</a>
+        <a target="_blank" href="https://github.com/Kamalkoranga/CBSE-Result-Finder" class="project">CBSE Result Finder Bot</a>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="https://projects.klka.me" target="_blank" class="button">
+          <i class="fas fa-external-link-alt"></i> View All Projects
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="social-icons">
+        <a href="https://github.com/kamalkoranga" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kamalkoranga" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://x.com/klkaxkaal" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+      <div class="footer-nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="mailto:klka@duck.com">Contact Me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright &copy;<span id="year"></span>; Code by <span class="coder">klka</span></p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
