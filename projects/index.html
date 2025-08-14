@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon-16x16.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>Projects | KLKA</title>
+</head>
+
+<body>
+  <nav>
+    <a href="#" class="logo-holder">
+      <div class="logo">
+        <img src="assets/imgs/android-chrome-512x512.png" alt="Logo">
+      </div>
+      <div class="logo-text">Portfolio</div>
+    </a>
+
+    <ul id="menu" class>
+      <li><a href="https://klka.me">Home</a></li>
+      <li><a class="active" href="#projects">Projects</a></li>
+      <li><a href="#stats">Stats</a></li>
+    </ul>
+
+    <a href="#" class="mobile-toggle" onclick="toggleMobileMenu();">
+      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"></path>
+      </svg>
+    </a>
+
+    <a href="mailto:klka@duck.com" class="button cta">Contact Me</a>
+  </nav>
+
+  <button id="dark-mode-toggle">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>My Projects</h1>
+        <p>A collection of my work showcasing various technologies and solutions I've built. Each project represents a
+          learning journey and demonstrates different aspects of my development skills.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/ilearn.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">iLearn-Eslide-Downloader</h3>
+              <p class="project-description">iLearn eSlide Downloader is a browser extension that helps students securely unlock and download password-protected PDF slides from the iLearn portal at GEHU. </p>
+              <div class="project-tech">
+                <span class="tech-tag">ilearn</span>
+                <span class="tech-tag">extension</span>
+                <span class="tech-tag">gehu</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/ilearn-eslide-downloader" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/ilearn-eslide-downloader" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/kaalpass.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">KaalPass</h3>
+              <p class="project-description">A secure, time-based solution that automatically changes your Linux system password daily and syncs it with an Android app for convenient access.</p>
+              <div class="project-tech">
+                <span class="tech-tag">linux</span>
+                <span class="tech-tag">totp</span>
+                <span class="tech-tag">flutter</span>
+                <span class="tech-tag">bash-script</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/kaalpass" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://kaalpass.klka.me" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/dochost.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">DocHost</h3>
+              <p class="project-description">DocHost, a PBL project on Virtualization and Cloud Computing and a self-hosted web app that works like Google Drive, but stores your files directly on your own hard drive.</p>
+              <div class="project-tech">
+                <span class="tech-tag">self-host</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">appwrite</span>
+                <span class="tech-tag">ci/cd</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/dochost" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://dochost.klka.me" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/daamusic.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">DaaMusic</h3>
+              <p class="project-description">A lightweight Python CLI to stream YouTube music using `mpv`, built as a PBL (Project-Based Learning) project for the DAA (Design and Analysis of Algorithms) course.</p>
+              <div class="project-tech">
+                <span class="tech-tag">python-cli</span>
+                <span class="tech-tag">PyPI</span>
+                <span class="tech-tag">mpv</span>
+                <span class="tech-tag">yt-dlp</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/daamusic" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://pypi.org/project/daa-music" target="_blank" class="project-link">
+                  <i class="fab fa-python"></i> PyPI
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/restlab.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">RestLab</h3>
+              <p class="project-description">RestLab is a fast, intuitive API testing tool inspired by Postman, built during a hackathon. It helps developers test RESTful APIs easily, focusing on simplicity without extra features or complexity.</p>
+              <div class="project-tech">
+                <span class="tech-tag">api</span>
+                <span class="tech-tag">postman-alternative</span>
+                <span class="tech-tag">rest</span>
+                <span class="tech-tag">testing</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/restlab" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://restlab-grl6.onrender.com" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/binarycss.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">BinaryCSS</h3>
+              <p class="project-description">A lightweight, modern CSS framework I built for my own projects that's now ready to share with the world. Responsive, clean, and no unnecessary bloat.</p>
+              <div class="project-tech">
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">custom-framework</span>
+                <span class="tech-tag">SCSS</span>
+                <span class="tech-tag">Responsive</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/BinaryCSS" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://binarycss.onrender.com" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/ctrack.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">CTRACK</h3>
+              <p class="project-description">CTrack is a minimal tool for students and developers to document and track their learning journey. Log daily progress, set milestones, and reflect on your growth — all in one place.</p>
+              <div class="project-tech">
+                <span class="tech-tag">tracker</span>
+                <span class="tech-tag">productivity</span>
+                <span class="tech-tag">student-tool</span>
+                <span class="tech-tag">growth</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/CTRACK-HACKATHON" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://ctrack-hackathon-e93l.onrender.com" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/sic-landing-page.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">SIC Landing Page</h3>
+              <p class="project-description">A sleek, responsive landing page built in 3 hours during a web-athon for a Startup Incubation Center. It showcases the center’s vision and attracts aspiring entrepreneurs.</p>
+              <div class="project-tech">
+                <span class="tech-tag">webathon</span>
+                <span class="tech-tag">landing-page</span>
+                <span class="tech-tag">showcase</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/web-athon" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://web-athon.onrender.com" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/codein.jpeg'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">CodeIn</h3>
+              <p class="project-description">CodeIn is a LinkedIn clone built as a learning project for developers. It uses HTML, CSS, Bootstrap, and JavaScript on the frontend, with Python (Flask) and PostgreSQL on the backend.</p>
+              <div class="project-tech">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">PostgreSQL</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/codein" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://codein-z17s.onrender.com" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/codehub.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">CodeHub</h3>
+              <p class="project-description">This is my class 12th project .i.e Codehub. This is a type of code hosting service, something like Github which is also a code hosting service.</p>
+              <div class="project-tech">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Collaboration</span>
+                <span class="tech-tag">Code Sharing</span>
+                <span class="tech-tag">Community</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamalkoranga/codehub" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                |
+                <a href="https://codehub.onrender.com" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('assets/imgs/cbse.png'); background-position: top;">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">CBSE Result Finder Bot</h3>
+              <p class="project-description">An automated bot that helps students find and retrieve their CBSE board
+                exam results quickly and efficiently using their roll numbers.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Bot Development</span>
+                <span class="tech-tag">Web Scraping</span>
+                <span class="tech-tag">Automation</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Kamalkoranga/CBSE-Result-Finder" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="stats">
+      <div class="container">
+        <h2 class="section-title">Project Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" id="projects-count"></div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Technologies Used</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">700+</div>
+            <div class="stat-label">Commits Made</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://github.com/kamalkoranga" target="_blank" class="social-link">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/kamalkoranga" target="_blank" class="social-link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://x.com/klkaxkaal" target="_blank" class="social-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <div class="footer-text">
+          <p>Copyright &copy;<span id="year"></span>; Code by <a href="https://klka.me" class="coder">KLKA</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
+    document.addEventListener("keydown", function (e) {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey &&
+          e.shiftKey &&
+          (e.key === "I" || e.key === "J" || e.key === "C")) ||
+        (e.ctrlKey && e.key === "U") ||
+        (e.ctrlKey && e.key === "u") ||
+        (e.ctrlKey && e.key === "s") ||
+        (e.ctrlKey && e.key === "S")
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    function toggleMobileMenu() {
+      document.getElementById("menu").classList.toggle("active");
+      document.getElementsByClassName("cta")[0].classList.toggle("active");
+    }
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('darkmode');
+      darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('darkmode');
+
+      if (body.classList.contains('darkmode')) {
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    document.getElementById('projects-count').textContent = `${document.querySelectorAll('.project-card').length}+`;
+  </script>
+</body>
+
+</html>
