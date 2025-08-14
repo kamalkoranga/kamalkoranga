@@ -237,7 +237,7 @@
             </div>
             <div class="project-content">
               <h3 class="project-title">CodeIn</h3>
-              <p class="project-description">This is an alternative/clone of LinkedIn, built with flask as a backend, postgresql as a database and html, css and js as a frontend.</p>
+              <p class="project-description">CodeIn is a LinkedIn clone built as a learning project for developers. It uses HTML, CSS, Bootstrap, and JavaScript on the frontend, with Python (Flask) and PostgreSQL on the backend.</p>
               <div class="project-tech">
                 <span class="tech-tag">JavaScript</span>
                 <span class="tech-tag">Flask</span>
@@ -310,7 +310,7 @@
         <h2 class="section-title">Project Statistics</h2>
         <div class="stats-grid">
           <div class="stat-item">
-            <div class="stat-number">8+</div>
+            <div class="stat-number" id="projects-count"></div>
             <div class="stat-label">Projects Completed</div>
           </div>
           <div class="stat-item">
@@ -412,6 +412,8 @@
         }
       });
     });
+
+    document.getElementById('projects-count').textContent = `${document.querySelectorAll('.project-card').length}+`;
   </script>
 </body>
 
