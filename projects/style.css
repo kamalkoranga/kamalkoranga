@@ -325,6 +325,7 @@ nav {
 
 .project-tech {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 20px;
