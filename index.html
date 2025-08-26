@@ -34,6 +34,7 @@
       <li><a href="#">Home</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#blogs">Blogs</a></li>
     </ul>
 
     <a href="#" class="mobile-toggle" onclick="toggleMobileMenu();">
@@ -163,9 +164,28 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- BLOGS SECTION -->
+     <section id="blogs" class="blogs container">
+      <h2>
+        <small>Latest</small>
+        Blog Posts
+      </h2>
+
+      <div class="blog-holder">
+        <div class="blog-grid" id="blogGrid">
+          <!-- Blog posts will be loaded here dynamically -->
+          <div class="loading">Loading blog posts...</div>
+        </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="https://misslogs.klka.me" target="_blank" class="button">
+          <i class="fas fa-blog"></i> View All Posts
+        </a>
+      </div>
+     </section>
   </main>
   
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">
       <div class="social-icons">
