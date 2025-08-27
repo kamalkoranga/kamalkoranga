@@ -1,0 +1,348 @@
+<svg fill="none" viewBox="0 0 600 400" width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100%" height="100%">
+  <div xmlns="http://www.w3.org/1999/xhtml">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .body {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --text-primary: #1a1a1a;
+        --text-secondary: #6b7280;
+        --text-muted: #9ca3af;
+        --border-default: #e5e7eb;
+        --border-muted: #f3f4f6;
+        --accent: #4b5563;
+        --accent-subtle: #f3f4f6;
+
+        height: 400px;
+        width: 100%;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-default);
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: left 0.5s;
+      }
+
+      .body:hover::before {
+        left: 100%;
+      }
+
+      .body:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border-color: var(--accent);
+      }
+
+      .container {
+        padding: 2rem;
+        width: 100%;
+        max-width: 520px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .header {
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .greeting {
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.01em;
+      }
+
+      .wave {
+        display: inline-block;
+        animation: wave 2.5s ease-in-out infinite;
+        transform-origin: 70% 70%;
+      }
+
+      .subtitle {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .section {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: var(--text-primary);
+      }
+
+      .section-icon {
+        width: 1rem;
+        height: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        margin-top: 0.125rem;
+        flex-shrink: 0;
+      }
+
+      .section-content {
+        flex: 1;
+      }
+
+      .tech-stack {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        margin-top: 0.125rem;
+      }
+
+      .tech-item {
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.75rem;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        padding: 0.125rem 0.375rem;
+        border-radius: 6px;
+        border: 1px solid var(--border-muted);
+        font-weight: 500;
+        transition: all 0.15s ease;
+      }
+
+      .tech-item:hover {
+        background: var(--accent-subtle);
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .highlight {
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .code {
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.8125rem;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        padding: 0.125rem 0.25rem;
+        border-radius: 3px;
+        border: 1px solid var(--border-muted);
+      }
+
+      .project-list {
+        color: var(--text-secondary);
+        font-style: italic;
+      }
+
+      .project-link {
+        color: var(--accent);
+        text-decoration: none;
+        font-style: normal;
+        border-radius: 3px;
+        transition: all 0.15s ease;
+      }
+
+      .project-link:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
+
+      .project-link:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 1px;
+      }
+
+      .topics {
+        color: var(--text-primary);
+      }
+
+      .topics .highlight {
+        color: var(--accent);
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      .portfolio-cta {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        color: gray;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.25s ease;
+        border: none;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .body {
+          --bg-primary: #0d1117;
+          --bg-secondary: #161b22;
+          --text-primary: #f0f6fc;
+          --text-secondary: #8b949e;
+          --text-muted: #656d76;
+          --border-default: #30363d;
+          --border-muted: #21262d;
+          --accent: #58a6ff;
+          --accent-subtle: #1c2d41;
+        }
+
+        .body::before {
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+      }
+
+      @keyframes wave {
+        0%, 100% { transform: rotate(0deg); }
+        10%, 30% { transform: rotate(14deg); }
+        20% { transform: rotate(-8deg); }
+        40%, 60% { transform: rotate(0deg); }
+        70% { transform: rotate(14deg); }
+        80% { transform: rotate(-4deg); }
+        90% { transform: rotate(0deg); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          padding: 1.5rem;
+        }
+        .greeting {
+          font-size: 1.125rem;
+        }
+        .section {
+          font-size: 0.8125rem;
+        }
+      }
+
+      /* Subtle focus states for accessibility */
+      .tech-item:focus,
+      .code:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 1px;
+      }
+
+      .portfolio-cta:focus {
+        outline: 2px solid rgba(255, 255, 255, 0.5);
+        outline-offset: 2px;
+      }
+    </style>
+    
+    <div class='body'>
+      <div class='container'>
+        <div class='main-content'>
+          <div class='header'>
+            <div class='greeting'>
+              Hello there <span class='wave'>👋</span>
+            </div>
+            <div class='subtitle'>
+              CSE Student by day ☼ · Developer by night ☾
+            </div>
+          </div>
+
+          <div class='content'>
+            <div class='section'>
+              <div class='section-icon'>⚙️</div>
+              <div class='section-content'>
+                Daily toolkit:
+                <div class='tech-stack'>
+                  <span class='tech-item'>.py</span>
+                  <span class='tech-item'>.js</span>
+                  <span class='tech-item'>.html</span>
+                  <span class='tech-item'>.css</span>
+                  <span class='tech-item'>.dart</span>
+                  <span class='tech-item'>.c</span>
+                </div>
+              </div>
+            </div>
+
+            <div class='section'>
+              <div class='section-icon'>🌍</div>
+              <div class='section-content'>
+                Active in <span class='highlight'>Python</span> and <span class='highlight'>Flask</span> communities
+              </div>
+            </div>
+
+            <div class='section'>
+              <div class='section-icon'>📌</div>
+              <div class='section-content'>
+                Currently selecting a problem to solve
+              </div>
+            </div>
+
+            <div class='section'>
+              <div class='section-icon'>🧑‍💻</div>
+              <div class='section-content'>
+                Built: <a href="#" class='project-link'>kaalpass</a>, <a href="#" class='project-link'>ilearn-eslide-downloader</a>, <a href="#" class='project-link'>dochost</a>, <a href="#" class='project-link'>daamusic</a>, <a href="#" class='project-link'>BinaryCSS</a>
+              </div>
+            </div>
+
+            <div class='section'>
+              <div class='section-icon'>💬</div>
+              <div class='section-content topics'>
+                <span class='code'>ping</span> me about <span class='highlight'>hobby projects</span>, <span class='highlight'>python</span>, <span class='highlight'>development</span>, <span class='highlight'>design thinking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='portfolio-cta'>
+          <span>( Click to view my portfolio )</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </foreignObject>
+</svg>
