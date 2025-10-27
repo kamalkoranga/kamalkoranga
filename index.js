@@ -48,7 +48,7 @@ document.addEventListener("keydown", function (e) {
 // Load blog posts
 async function loadBlogPosts() {
   const blogGrid = document.getElementById('blogGrid');
-  const feedUrl = 'https://misslogs.klka.me/index.xml';
+  const feedUrl = 'https://misslogs.klka.in/index.xml';
 
   // Helpers
   const cleanText = (html) => html.replace(/<[^>]*>/g, '').trim();
