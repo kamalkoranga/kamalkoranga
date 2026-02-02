@@ -1,27 +1,66 @@
+// ROTATING THEME SYSTEM - Different theme on every page load
+const themes = [
+  'theme-default-dark',
+  'theme-neon-cyber',
+  'theme-dark-ocean',
+  'theme-midnight-purple',
+  'theme-terminal-green',
+  'theme-blood-moon',
+  'theme-dark-forest',
+  'theme-obsidian',
+  'theme-deep-space',
+  'theme-noir-red',
+  'theme-carbon-gold'
+];
+
+function initializeTheme() {
+  const lastTheme = localStorage.getItem('currentTheme');
+  
+  // Select a random theme different from the last one
+  let newTheme;
+  do {
+    newTheme = themes[Math.floor(Math.random() * themes.length)];
+  } while (newTheme === lastTheme && themes.length > 1);
+  
+  // Apply the theme
+  document.body.setAttribute('data-theme', newTheme);
+  localStorage.setItem('currentTheme', newTheme);
+  
+  // Add theme indicator
+  showThemeNotification(newTheme);
+}
+
+function showThemeNotification(themeName) {
+  const notification = document.createElement('div');
+  notification.className = 'theme-notification';
+  notification.innerHTML = `
+    <i class="fa-solid fa-palette"></i>
+    <span>${themeName.replace('theme-', '').replace(/-/g, ' ')}</span>
+  `;
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.classList.add('show');
+  }, 100);
+  
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => notification.remove(), 300);
+  }, 1500);
+}
+
+// Initialize theme on page load
+initializeTheme();
+
 function toggleMobileMenu() {
   document.getElementById("menu").classList.toggle("active");
   document.getElementsByClassName("cta")[0].classList.toggle("active");
 }
 
-let darkMode = localStorage.getItem('darkMode');
 const darkModeToogle = document.querySelector('#dark-mode-toogle');
 
-if (darkMode === 'enabled') {
-  document.body.classList.add('darkmode');
-  darkModeToogle.innerHTML = `<i class="fa-solid fa-sun"></i>`
-}
-
 darkModeToogle.addEventListener('click', (e) => {
-  darkMode = localStorage.getItem('darkMode');
-  if (darkMode !== 'enabled') {
-    document.body.classList.add('darkmode');
-    darkModeToogle.innerHTML = `<i class="fa-solid fa-sun"></i>`
-    localStorage.setItem('darkMode', 'enabled');
-  } else {
-    document.body.classList.remove('darkmode');
-    darkModeToogle.innerHTML = `<i class="fa-solid fa-moon"></i>`
-    localStorage.setItem('darkMode', null);
-  }
+  // Toogle light mode of its respective dark mode
 });
 
 // get the current year
@@ -30,6 +69,7 @@ document.getElementById("year").innerHTML = year;
 
 // Disable right-click context menu
 document.addEventListener("contextmenu", (event) => event.preventDefault());
+
 document.addEventListener("keydown", function (e) {
   if (
     e.key === "F12" ||
@@ -68,7 +108,6 @@ async function loadBlogPosts() {
     const response = await fetch(feedUrl);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const xmlText = await response.text();
-
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
     const items = xmlDoc.querySelectorAll('item');
@@ -79,7 +118,6 @@ async function loadBlogPosts() {
     }
 
     const posts = Array.from(items).slice(0, 3);
-
     blogGrid.innerHTML = posts.map(item => {
       const title = item.querySelector('title')?.textContent.trim() || 'Untitled Post';
       const link = item.querySelector('link')?.textContent.trim() || '#';
@@ -102,7 +140,6 @@ async function loadBlogPosts() {
         </a>
       `;
     }).join('');
-
   } catch (err) {
     console.error('Error loading blog posts:', err);
     blogGrid.innerHTML = `
