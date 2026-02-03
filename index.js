@@ -19,20 +19,21 @@ const darkThemes = Object.keys(themeMap);
 // All light themes
 const lightThemes = Object.values(themeMap);
 
+// Initialize theme on page load
 function initializeTheme() {
   const lastTheme = localStorage.getItem('currentTheme');
   const isDarkMode = localStorage.getItem('isDarkMode');
 
   let newTheme;
   do {
-    if (isDarkMode == 'false') {
+    if (isDarkMode === 'false') {
       // Select a random light theme
       newTheme = lightThemes[Math.floor(Math.random() * lightThemes.length)];
     } else {
       // Select a random dark theme
       newTheme = darkThemes[Math.floor(Math.random() * darkThemes.length)];
     }
-  } while (newTheme === lastTheme);
+  } while (newTheme === lastTheme && (isDarkMode === 'false' ? lightThemes.length : darkThemes.length) > 1);
 
   // Apply the theme
   document.body.setAttribute('data-theme', newTheme);
@@ -46,16 +47,27 @@ function initializeTheme() {
   showThemeNotification(newTheme);
 }
 
+// Update dark mode toggle icon
 function updateToggleIcon(isDark) {
-  const toggleButton = document.querySelector('#dark-mode-toogle');
+  const toggleButton = document.querySelector('#dark-mode-toggle');
   if (toggleButton) {
-    toggleButton.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    toggleButton.innerHTML = `<i class="fa-solid fa-${isDark ? 'sun' : 'moon'}" aria-hidden="true"></i>`;
+    toggleButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
   }
 }
 
+// Show theme change notification
 function showThemeNotification(themeName) {
+  // Remove existing notification if any
+  const existingNotification = document.querySelector('.theme-notification');
+  if (existingNotification) {
+    existingNotification.remove();
+  }
+
   const notification = document.createElement('div');
   notification.className = 'theme-notification';
+  notification.setAttribute('role', 'status');
+  notification.setAttribute('aria-live', 'polite');
   
   // Clean up theme name for display
   const displayName = themeName
@@ -64,98 +76,121 @@ function showThemeNotification(themeName) {
     .replace(/-/g, ' ');
   
   notification.innerHTML = `
-    <i class="fa-solid fa-palette"></i>
+    <i class="fa-solid fa-palette" aria-hidden="true"></i>
     <span>${displayName}</span>
   `;
   document.body.appendChild(notification);
   
-  setTimeout(() => {
+  // Trigger animation
+  requestAnimationFrame(() => {
     notification.classList.add('show');
-  }, 100);
+  });
   
+  // Remove after delay
   setTimeout(() => {
     notification.classList.remove('show');
     setTimeout(() => notification.remove(), 300);
-  }, 1000);
+  }, 1200);
 }
 
+// Toggle mobile menu
 function toggleMobileMenu() {
-  document.getElementById("menu").classList.toggle("active");
-  document.getElementsByClassName("cta")[0].classList.toggle("active");
+  const menu = document.getElementById("menu");
+  const cta = document.querySelector(".cta");
+  const toggle = document.querySelector(".mobile-toggle");
+  
+  if (menu) {
+    const isActive = menu.classList.toggle("active");
+    toggle?.setAttribute('aria-expanded', isActive.toString());
+  }
+  
+  cta?.classList.toggle("active");
 }
 
-// Dark Mode Toggle Functionality
-const darkModeToogle = document.querySelector('#dark-mode-toogle');
+// Dark Mode Toggle Event Handler
+function setupDarkModeToggle() {
+  const darkModeToggle = document.querySelector('#dark-mode-toggle');
+  
+  if (!darkModeToggle) return;
 
-darkModeToogle.addEventListener('click', (e) => {
-  const currentTheme = localStorage.getItem('currentTheme');
-  const isDarkMode = localStorage.getItem('isDarkMode') !== 'false';
-  
-  let newTheme;
-  
-  if (isDarkMode) {
-    // Switch to light mode - find the light counterpart
-    if (darkThemes.includes(currentTheme)) {
-      newTheme = themeMap[currentTheme];
+  darkModeToggle.addEventListener('click', (e) => {
+    const currentTheme = localStorage.getItem('currentTheme');
+    const isDarkMode = localStorage.getItem('isDarkMode') !== 'false';
+    
+    let newTheme;
+    
+    if (isDarkMode) {
+      // Switch to light mode - find the light counterpart
+      if (darkThemes.includes(currentTheme)) {
+        newTheme = themeMap[currentTheme];
+      } else {
+        // Fallback to default light if somehow in light mode already
+        newTheme = 'theme-default-light';
+      }
     } else {
-      // Fallback to default light if somehow in light mode already
-      newTheme = 'theme-default-light';
+      // Switch to dark mode - find the dark counterpart
+      const darkThemeEntry = Object.entries(themeMap).find(([dark, light]) => light === currentTheme);
+      if (darkThemeEntry) {
+        newTheme = darkThemeEntry[0];
+      } else {
+        // Fallback to default dark
+        newTheme = 'theme-default-dark';
+      }
     }
-  } else {
-    // Switch to dark mode - find the dark counterpart
-    const darkThemeEntry = Object.entries(themeMap).find(([dark, light]) => light === currentTheme);
-    if (darkThemeEntry) {
-      newTheme = darkThemeEntry[0];
-    } else {
-      // Fallback to default dark
-      newTheme = 'theme-default-dark';
+    
+    // Apply new theme
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('currentTheme', newTheme);
+    localStorage.setItem('isDarkMode', (!isDarkMode).toString());
+    
+    // Update toggle button icon
+    updateToggleIcon(!isDarkMode);
+    
+    // Show notification
+    showThemeNotification(newTheme);
+  });
+}
+
+// Set current year in footer
+function setCurrentYear() {
+  const yearElement = document.getElementById("year");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+}
+
+// Prevent right-click and certain keyboard shortcuts (optional - remove if not needed)
+function setupSecurityMeasures() {
+  // Disable right-click context menu
+  document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+  // Disable certain keyboard shortcuts
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
+      (e.ctrlKey && (e.key === "U" || e.key === "u" || e.key === "s" || e.key === "S"))
+    ) {
+      e.preventDefault();
     }
-  }
-  
-  // Apply new theme
-  document.body.setAttribute('data-theme', newTheme);
-  localStorage.setItem('currentTheme', newTheme);
-  localStorage.setItem('isDarkMode', !isDarkMode);
-  
-  // Update toggle button icon
-  updateToggleIcon(!isDarkMode);
-  
-  // Show notification
-  showThemeNotification(newTheme);
-});
+  });
+}
 
-// Initialize theme on page load
-initializeTheme();
-
-// get the current year
-const year = new Date().getFullYear();
-document.getElementById("year").innerHTML = year;
-
-// Disable right-click context menu
-document.addEventListener("contextmenu", (event) => event.preventDefault());
-
-document.addEventListener("keydown", function (e) {
-  if (
-    e.key === "F12" ||
-    (e.ctrlKey &&
-      e.shiftKey &&
-      (e.key === "I" || e.key === "J" || e.key === "C")) ||
-    (e.ctrlKey && e.key === "U") ||
-    (e.ctrlKey && e.key === "u") ||
-    (e.ctrlKey && e.key === "s") ||
-    (e.ctrlKey && e.key === "S")
-  ) {
-    e.preventDefault();
-  }
-});
-
-// Load blog posts
+// Load blog posts from RSS feed
 async function loadBlogPosts() {
   const blogGrid = document.getElementById('blogGrid');
+  if (!blogGrid) return;
+
   const feedUrl = 'https://misslogs.klka.in/index.xml';
 
-  // Helpers
-  const cleanText = (html) => html.replace(/<[^>]*>/g, '').trim();
+  // Helper functions
+  const cleanText = (html) => {
+    if (!html) return '';
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    return temp.textContent.trim();
+  };
+
   const formatDate = (dateStr) => {
     if (!dateStr) return 'Recent';
     const date = new Date(dateStr);
@@ -163,17 +198,61 @@ async function loadBlogPosts() {
       ? 'Recent'
       : date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   };
+
   const estimateReadTime = (text) => {
+    if (!text) return 1;
     const words = text.split(/\s+/).length;
     return Math.max(1, Math.round(words / 200));
   };
 
+  const createBlogCard = (item) => {
+    const title = item.querySelector('title')?.textContent?.trim() || 'Untitled Post';
+    const link = item.querySelector('link')?.textContent?.trim() || '#';
+    const rawDesc = item.querySelector('description')?.textContent || '';
+    const description = cleanText(rawDesc).substring(0, 150) + '...';
+    const pubDate = formatDate(item.querySelector('pubDate')?.textContent);
+    const readTime = estimateReadTime(description);
+
+    return `
+      <a href="${link}" target="_blank" rel="noopener noreferrer" class="blog-card">
+        <h3>${title}</h3>
+        <p>${description}</p>
+        <div class="blog-meta">
+          <span class="blog-date">${pubDate}</span>
+          <div class="read-time">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            <span>${readTime} min read</span>
+          </div>
+        </div>
+      </a>
+    `;
+  };
+
   try {
-    const response = await fetch(feedUrl);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
+    const response = await fetch(feedUrl, { 
+      signal: controller.signal,
+      cache: 'default'
+    });
+    
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
     const xmlText = await response.text();
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+    
+    // Check for parsing errors
+    const parserError = xmlDoc.querySelector('parsererror');
+    if (parserError) {
+      throw new Error('Failed to parse RSS feed');
+    }
+
     const items = xmlDoc.querySelectorAll('item');
 
     if (!items.length) {
@@ -182,34 +261,20 @@ async function loadBlogPosts() {
     }
 
     const posts = Array.from(items).slice(0, 3);
-    blogGrid.innerHTML = posts.map(item => {
-      const title = item.querySelector('title')?.textContent.trim() || 'Untitled Post';
-      const link = item.querySelector('link')?.textContent.trim() || '#';
-      const rawDesc = item.querySelector('description')?.textContent || '';
-      const description = cleanText(rawDesc).substring(0, 150) + '...';
-      const pubDate = formatDate(item.querySelector('pubDate')?.textContent);
-      const readTime = estimateReadTime(description);
+    blogGrid.innerHTML = posts.map(createBlogCard).join('');
 
-      return `
-        <a href="${link}" target="_blank" class="blog-card">
-          <h3>${title}</h3>
-          <p>${description}</p>
-          <div class="blog-meta">
-            <span class="blog-date">${pubDate}</span>
-            <div class="read-time">
-              <i class="fa-regular fa-clock"></i>
-              <span>${readTime} min read</span>
-            </div>
-          </div>
-        </a>
-      `;
-    }).join('');
   } catch (err) {
     console.error('Error loading blog posts:', err);
+    
+    let errorMessage = 'Unable to load blog posts at the moment.';
+    if (err.name === 'AbortError') {
+      errorMessage = 'Request timeout. Please check your connection.';
+    }
+
     blogGrid.innerHTML = `
       <div class="error">
-        <p>Unable to load blog posts at the moment.</p>
-        <p><a href="${feedUrl.replace('/index.xml','')}" target="_blank" class="button">Visit Blog Directly</a></p>
+        <p>${errorMessage}</p>
+        <p><a href="https://misslogs.klka.in" target="_blank" rel="noopener noreferrer" class="button">Visit Blog Directly</a></p>
       </div>
     `;
   }
