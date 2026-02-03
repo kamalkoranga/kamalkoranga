@@ -280,4 +280,127 @@ async function loadBlogPosts() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadBlogPosts);
+/**
+ * Smooth scroll to section when clicking nav links
+ */
+function setupSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      
+      // Skip if href is just "#"
+      if (href === '#') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+        const targetPosition = target.offsetTop - navHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+
+        // Close mobile menu if open
+        const menu = document.getElementById("menu");
+        const cta = document.querySelector(".cta");
+        if (menu?.classList.contains('active')) {
+          menu.classList.remove('active');
+          cta?.classList.remove('active');
+        }
+      }
+    });
+  });
+}
+
+/**
+ * Add intersection observer for fade-in animations
+ */
+function setupScrollAnimations() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Observe sections
+  document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(section);
+  });
+}
+
+/**
+ * Close mobile menu when clicking outside
+ */
+function setupMobileMenuClose() {
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById("menu");
+    const toggle = document.querySelector(".mobile-toggle");
+    
+    if (menu?.classList.contains('active') && 
+        !menu.contains(e.target) && 
+        !toggle?.contains(e.target)) {
+      toggleMobileMenu();
+    }
+  });
+}
+
+/**
+ * Initialize all functionality when DOM is ready
+ */
+function init() {
+  // Initialize theme
+  initializeTheme();
+  
+  // Set up event listeners
+  setupDarkModeToggle();
+  setCurrentYear();
+  setupSmoothScroll();
+  setupMobileMenuClose();
+  
+  // Optional security measures (comment out if not needed)
+  // setupSecurityMeasures();
+  
+  // Load blog posts
+  loadBlogPosts();
+  
+  // Set up scroll animations after a short delay
+  setTimeout(setupScrollAnimations, 100);
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// Handle page visibility changes
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    // Refresh blog posts when page becomes visible again
+    loadBlogPosts();
+  }
+});
+
+// Optimize for mobile - prevent 300ms tap delay
+if ('ontouchstart' in window) {
+  document.addEventListener('touchstart', function() {}, { passive: true });
+}
