@@ -956,13 +956,28 @@ h3 {
   }
 }
 
-    "img3 img3 img4 img4 img4"
-    "img5 img5 img5 img6 img6"
-    "img7 img7 img8 img8 img8";
+/* ============================================ */
+/* PROJECTS SECTION */
+/* ============================================ */
+
+.projects {
+  .projects-grid {
+    border-radius: 30px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    grid-template-areas: 
+      "img1 img1 img1 img2 img2"
+      "img3 img3 img4 img4 img4"
+      "img5 img5 img5 img6 img6"
+      "img7 img7 img8 img8 img8";
 
     .project {
       background-size: cover;
-      background-position: left;
+      background-position: center;
       color: #fff;
       display: flex;
       justify-content: center;
@@ -970,101 +985,125 @@ h3 {
       text-decoration: none;
       background-color: #222;
       background-blend-mode: soft-light;
-      transition: all 1s ease-in-out;
-      border-radius: 7px;
+      transition: all 0.5s ease;
+      border-radius: 10px;
       border: 2px solid var(--border);
+      padding: 20px;
+      text-align: center;
+      font-weight: 600;
+      font-size: clamp(14px, 2vw, 18px);
+      position: relative;
+      overflow: hidden;
 
-      &:hover {
-        background-color: transparent;
-        background-position: right;
-        box-shadow: 0 0 4px #fff;
-        color: transparent;
+      span {
+        position: relative;
+        z-index: 2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
       }
 
-      &:nth-child(1) {
-        background-position: top;
-        grid-area: img1;
-        border-top-left-radius: 30px;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        transition: opacity 0.5s ease;
+        z-index: 1;
+      }
 
-        &:hover {
-          background-position: bottom;
+      &:hover::before,
+      &:focus::before {
+        opacity: 0;
+      }
+
+      &:hover,
+      &:focus {
+        background-position: right bottom;
+        box-shadow: 0 5px 25px var(--border);
+        transform: translateY(-3px);
+        color: transparent;
+        background-color: transparent;
+
+        span {
+          opacity: 0;
         }
+      }
+
+      /* Project Background Images */
+      &:nth-child(1) {
+        background-image: url('assets/imgs/ilearn.png');
+        grid-area: img1;
       }
 
       &:nth-child(2) {
-        border-top-right-radius: 30px;
-        background-position: top;
+        background-image: url('assets/imgs/kaalpass.png');
         grid-area: img2;
-
-        &:hover {
-          background-position: bottom;
-        }
       }
 
       &:nth-child(3) {
+        background-image: url('assets/imgs/dochost.png');
         grid-area: img3;
-        background-position: top;
-
-        &:hover {
-          background-position: bottom;
-        }
       }
 
       &:nth-child(4) {
-        background-position: top;
+        background-image: url('assets/imgs/daamusic.png');
         grid-area: img4;
-
-        &:hover {
-          background-position: bottom;
-        }
       }
 
       &:nth-child(5) {
+        background-image: url('assets/imgs/binarycss.png');
         grid-area: img5;
-        background-position: top;
-
-        &:hover {
-          background-position: bottom;
-        }
       }
 
       &:nth-child(6) {
+        background-image: url('assets/imgs/codein.jpeg');
         grid-area: img6;
-        background-position: top;
-
-        &:hover {
-          background-position: bottom;
-        }
       }
 
       &:nth-child(7) {
+        background-image: url('assets/imgs/codehub.png');
         grid-area: img7;
-        background-position: top;
-        border-bottom-left-radius: 30px;
-
-        &:hover {
-          background-position: bottom;
-        }
       }
 
       &:nth-child(8) {
+        background-image: url('assets/imgs/cbse.png');
         grid-area: img8;
-        background-position: top;
-        border-bottom-right-radius: 30px;
+      }
+    }
 
-        &:hover {
-          background-position: bottom;
-        }
+    @media (max-width: 1024px) {
+      & {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(180px, auto);
+        grid-template-areas: 
+          "img1 img2"
+          "img3 img4"
+          "img5 img6"
+          "img7 img8";
       }
     }
 
     @media (max-width: 768px) {
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
-      grid-template-areas: "img1" "img2" "img3" "img4" "img5" "img6" "img7" "img8";
+      & {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+        grid-auto-rows: minmax(160px, auto);
+        grid-template-areas: 
+          "img1" 
+          "img2" 
+          "img3" 
+          "img4" 
+          "img5" 
+          "img6" 
+          "img7" 
+          "img8";
 
-      .project {
-        border-radius: 20px;
+        & .project {
+          border-radius: 15px;
+        }
       }
     }
   }
