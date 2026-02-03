@@ -1,41 +1,71 @@
-// ROTATING THEME SYSTEM - Different theme on every page load
-const themes = [
-  'theme-default-dark',
-  'theme-neon-cyber',
-  'theme-dark-ocean',
-  'theme-midnight-purple',
-  'theme-terminal-green',
-  'theme-blood-moon',
-  'theme-dark-forest',
-  'theme-obsidian',
-  'theme-deep-space',
-  'theme-noir-red',
-  'theme-carbon-gold'
-];
+// THEME MAPPING - Each dark theme has its light counterpart
+const themeMap = {
+  'theme-default-dark': 'theme-default-light',
+  'theme-neon-cyber': 'theme-neon-cyber-light',
+  'theme-dark-ocean': 'theme-ocean-light',
+  'theme-midnight-purple': 'theme-purple-light',
+  'theme-terminal-green': 'theme-terminal-green-light',
+  'theme-blood-moon': 'theme-rose-light',
+  'theme-dark-forest': 'theme-forest-light',
+  'theme-obsidian': 'theme-silver-light',
+  'theme-deep-space': 'theme-sky-light',
+  'theme-noir-red': 'theme-coral-light',
+  'theme-carbon-gold': 'theme-amber-light'
+};
+
+// All dark themes
+const darkThemes = Object.keys(themeMap);
+
+// All light themes
+const lightThemes = Object.values(themeMap);
 
 function initializeTheme() {
   const lastTheme = localStorage.getItem('currentTheme');
-  
-  // Select a random theme different from the last one
+  const isDarkMode = localStorage.getItem('isDarkMode');
+
   let newTheme;
   do {
-    newTheme = themes[Math.floor(Math.random() * themes.length)];
-  } while (newTheme === lastTheme && themes.length > 1);
-  
+    if (isDarkMode == 'false') {
+      // Select a random light theme
+      newTheme = lightThemes[Math.floor(Math.random() * lightThemes.length)];
+    } else {
+      // Select a random dark theme
+      newTheme = darkThemes[Math.floor(Math.random() * darkThemes.length)];
+    }
+  } while (newTheme === lastTheme);
+
   // Apply the theme
   document.body.setAttribute('data-theme', newTheme);
   localStorage.setItem('currentTheme', newTheme);
+  localStorage.setItem('isDarkMode', isDarkMode);
   
-  // Add theme indicator
+  // Update toggle button icon
+  updateToggleIcon(isDarkMode);
+  
+  // Show theme notification
   showThemeNotification(newTheme);
+}
+
+function updateToggleIcon(isDark) {
+  const toggleButton = document.querySelector('#dark-mode-toogle');
+  if (toggleButton) {
+    toggleButton.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+  }
 }
 
 function showThemeNotification(themeName) {
   const notification = document.createElement('div');
   notification.className = 'theme-notification';
+  
+  // Clean up theme name for display
+  const displayName = themeName
+    .replace('theme-', '')
+    .replace(/-light$/, ' (light)')
+    .replace(/-/g, ' ');
+  
   notification.innerHTML = `
     <i class="fa-solid fa-palette"></i>
-    <span>${themeName.replace('theme-', '').replace(/-/g, ' ')}</span>
+    <span>${displayName}</span>
   `;
   document.body.appendChild(notification);
   
@@ -46,22 +76,56 @@ function showThemeNotification(themeName) {
   setTimeout(() => {
     notification.classList.remove('show');
     setTimeout(() => notification.remove(), 300);
-  }, 1500);
+  }, 1000);
 }
-
-// Initialize theme on page load
-initializeTheme();
 
 function toggleMobileMenu() {
   document.getElementById("menu").classList.toggle("active");
   document.getElementsByClassName("cta")[0].classList.toggle("active");
 }
 
+// Dark Mode Toggle Functionality
 const darkModeToogle = document.querySelector('#dark-mode-toogle');
 
 darkModeToogle.addEventListener('click', (e) => {
-  // Toogle light mode of its respective dark mode
+  const currentTheme = localStorage.getItem('currentTheme');
+  const isDarkMode = localStorage.getItem('isDarkMode') !== 'false';
+  
+  let newTheme;
+  
+  if (isDarkMode) {
+    // Switch to light mode - find the light counterpart
+    if (darkThemes.includes(currentTheme)) {
+      newTheme = themeMap[currentTheme];
+    } else {
+      // Fallback to default light if somehow in light mode already
+      newTheme = 'theme-default-light';
+    }
+  } else {
+    // Switch to dark mode - find the dark counterpart
+    const darkThemeEntry = Object.entries(themeMap).find(([dark, light]) => light === currentTheme);
+    if (darkThemeEntry) {
+      newTheme = darkThemeEntry[0];
+    } else {
+      // Fallback to default dark
+      newTheme = 'theme-default-dark';
+    }
+  }
+  
+  // Apply new theme
+  document.body.setAttribute('data-theme', newTheme);
+  localStorage.setItem('currentTheme', newTheme);
+  localStorage.setItem('isDarkMode', !isDarkMode);
+  
+  // Update toggle button icon
+  updateToggleIcon(!isDarkMode);
+  
+  // Show notification
+  showThemeNotification(newTheme);
 });
+
+// Initialize theme on page load
+initializeTheme();
 
 // get the current year
 const year = new Date().getFullYear();
