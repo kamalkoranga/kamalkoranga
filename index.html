@@ -3,95 +3,112 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Kamal Koranga - Third-year Computer Science student and full-stack developer from India. Specializing in web development, Python scripting, and modern web technologies.">
+  <meta name="theme-color" content="#0a61ae">
+  
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+  
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon-16x16.png">
   <link rel="manifest" href="assets/site.webmanifest">
+  
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="index.css">
+  
   <title>Klka's Dev Portfolio</title>
 </head>
 
 <body>
   <!-- NAVBAR -->
-  <nav>
-    <a href="#" class="logo-holder">
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="#" class="logo-holder" aria-label="Home">
       <div class="logo">
-        <img src="assets/imgs/android-chrome-512x512.png" alt="Logo">
+        <img src="assets/imgs/android-chrome-512x512.png" alt="KLKA Logo" width="64" height="64">
       </div>
       <div class="logo-text">Portfolio</div>
     </a>
 
-    <ul id="menu" class>
-      <li><a href="#">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#blogs">Blogs</a></li>
+    <ul id="menu" role="menubar">
+      <li role="none"><a href="#" role="menuitem">Home</a></li>
+      <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+      <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+      <li role="none"><a href="#blogs" role="menuitem">Blogs</a></li>
     </ul>
 
-    <a href="#" class="mobile-toggle" onclick="toggleMobileMenu();">
-      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+    <button class="mobile-toggle" onclick="toggleMobileMenu();" aria-label="Toggle mobile menu" aria-expanded="false">
+      <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
         width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"></path>
       </svg>
-    </a>
+    </button>
 
     <a href="mailto:klka@duck.com" class="button cta">Contact Me</a>
   </nav>
 
-  <button id="dark-mode-toogle">
-    <i class="fa-solid fa-moon"></i>
+  <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
   </button>
 
   <!-- MAIN -->
   <main>
 
     <!-- HERO SECTION -->
-    <section class="hero container">
+    <section class="hero container" aria-labelledby="hero-heading">
       <div class="hero-left">
         <div>
-          <h1>Hello</h1>
-          <h1>I'm Kamal</h1>
-          <h1>Koranga</h1>
-          <a href="assets/Resume.pdf" target="_blank" class="button resume"><i class="fa-solid fa-download"></i> Resume</a>
+          <h1 id="hero-heading">
+            <span class="hero-line">Hello</span>
+            <span class="hero-line">I'm Kamal</span>
+            <span class="hero-line">Koranga</span>
+          </h1>
+          <a href="assets/Resume.pdf" target="_blank" rel="noopener noreferrer" class="button resume">
+            <i class="fa-solid fa-download" aria-hidden="true"></i> 
+            <span>Resume</span>
+          </a>
         </div>
       </div>
 
       <div class="hero-right">
         <div>
           <p>
-            I'm a third-year Computer Science student and developer from India. I enjoy building apps and full-stack projects, and love exploring new technologies. My experience includes web development and Python scripting. Currently, I'm working on a personal project to sharpen my skills. Download my resume to learn more.
+            I'm a third-year Computer Science student and developer from India. I enjoy building apps and full-stack projects, and love exploring new technologies. My experience includes web development and Python scripting. Currently, I'm working on a personal project to sharpen my skills.
           </p>
           <div class="call-to-action">
-            <a target="_blank" href="https://x.com/klkaxkaal" data-tooltip="Twitter" data-position="bottom"
-              class="bottom">TW.</a>
-            <a target="_blank" href="https://www.linkedin.com/in/kamalkoranga" data-tooltip="LinkedIn"
-              data-position="bottom" class="bottom">LN.</a>
-            <a target="_blank" href="https://github.com/kamalkoranga" data-tooltip="GitHub" data-position="bottom"
-              class="bottom">GIT.</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://x.com/klkaxkaal" 
+               aria-label="Twitter Profile" data-tooltip="Twitter" data-position="bottom">TW.</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kamalkoranga" 
+               aria-label="LinkedIn Profile" data-tooltip="LinkedIn" data-position="bottom">LN.</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/kamalkoranga" 
+               aria-label="GitHub Profile" data-tooltip="GitHub" data-position="bottom">GIT.</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- SKILLS SECTION -->
-    <section id="skills" class="skills container">
-      <h2>
+    <section id="skills" class="skills container" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">
         <small>Tech Stack</small>
         Skills Bar
       </h2>
       <div class="holder-blue">
         <div class="left-column">
           <h3>Tech Stack</h3>
-          <ul>
+          <ul aria-label="Programming languages and frameworks">
             <li>C</li>
             <li>HTML</li>
             <li>CSS</li>
@@ -102,7 +119,7 @@
             <li>PostgreSQL</li>
           </ul>
           <h3>Tools</h3>
-          <ul>
+          <ul aria-label="Development tools">
             <li>Docker</li>
             <li>VS Code</li>
             <li>Figma</li>
@@ -115,83 +132,121 @@
         </div>
         <div class="right-column">
           <h3>Skill Bar</h3>
-          <p>HTML & CSS</p>
-          <div class="bar">
-            <div class="skill htmlcss">87%</div>
+          <div class="skill-item">
+            <p>HTML & CSS</p>
+            <div class="bar" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill htmlcss">87%</div>
+            </div>
           </div>
 
-          <p>JavaScript</p>
-          <div class="bar">
-            <div class="skill js">65%</div>
+          <div class="skill-item">
+            <p>JavaScript</p>
+            <div class="bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill js">65%</div>
+            </div>
           </div>
 
-          <p>Python</p>
-          <div class="bar">
-            <div class="skill py">80%</div>
+          <div class="skill-item">
+            <p>Python</p>
+            <div class="bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill py">80%</div>
+            </div>
           </div>
 
-          <p>C</p>
-          <div class="bar">
-            <div class="skill c">70%</div>
+          <div class="skill-item">
+            <p>C</p>
+            <div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill c">70%</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- PROJECTS SECTION -->
-    <section id="projects" class="projects container">
-      <h2>
-        <small>
-          Previous
-        </small>
+    <section id="projects" class="projects container" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">
+        <small>Previous</small>
         Completed Projects
       </h2>
       <div class="projects-grid">
-        <a target="_blank" href="https://github.com/kamalkoranga/ilearn-eslide-downloader" class="project">iLearn-Eslide-Downloader</a>
-        <a target="_blank" href="https://kaalpass.klka.in" class="project">KaalPass</a>
-        <a target="_blank" href="https://dochost.klka.in" class="project">DocHost</a>
-        <a target="_blank" href="https://pypi.org/project/daa-music" class="project">DaaMusic</a>
-        <a target="_blank" href="https://binarycss.onrender.com" class="project">BinaryCSS</a>
-        <a target="_blank" href="https://codein-z17s.onrender.com" class="project">CodeIn</a>
-        <a target="_blank" href="https://codehub.onrender.com" class="project">CodeHub</a>
-        <a target="_blank" href="https://github.com/Kamalkoranga/CBSE-Result-Finder" class="project">CBSE Result Finder Bot</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/kamalkoranga/ilearn-eslide-downloader" 
+           class="project" aria-label="iLearn-Eslide-Downloader project">
+          <span>iLearn-Eslide-Downloader</span>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://kaalpass.klka.in" 
+           class="project" aria-label="KaalPass project">
+          <span>KaalPass</span>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://dochost.klka.in" 
+           class="project" aria-label="DocHost project">
+          <span>DocHost</span>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://pypi.org/project/daa-music" 
+           class="project" aria-label="DaaMusic project">
+          <span>DaaMusic</span>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://binarycss.onrender.com" 
+           class="project" aria-label="BinaryCSS project">
+          <span>BinaryCSS</span>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://codein-z17s.onrender.com" 
+           class="project" aria-label="CodeIn project">
+          <span>CodeIn</span>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://codehub.onrender.com" 
+           class="project" aria-label="CodeHub project">
+          <span>CodeHub</span>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/Kamalkoranga/CBSE-Result-Finder" 
+           class="project" aria-label="CBSE Result Finder Bot project">
+          <span>CBSE Result Finder Bot</span>
+        </a>
       </div>
 
       <div class="view-all-container">
-        <a href="https://projects.klka.in" target="_blank" class="button">
-          <i class="fas fa-external-link-alt"></i> View All Projects
+        <a href="https://projects.klka.in" target="_blank" rel="noopener noreferrer" class="button">
+          <i class="fas fa-external-link-alt" aria-hidden="true"></i> 
+          <span>View All Projects</span>
         </a>
       </div>
     </section>
 
     <!-- BLOGS SECTION -->
-     <section id="blogs" class="blogs container">
-      <h2>
+    <section id="blogs" class="blogs container" aria-labelledby="blogs-heading">
+      <h2 id="blogs-heading">
         <small>Latest</small>
         Blog Posts
       </h2>
 
       <div class="blog-holder">
         <div class="blog-grid" id="blogGrid">
-          <!-- Blog posts will be loaded here dynamically -->
-          <div class="loading">Loading blog posts...</div>
+          <div class="loading" role="status" aria-live="polite">Loading blog posts...</div>
         </div>
 
-      <div class="view-all-container">
-        <a href="https://misslogs.klka.in" target="_blank" class="button">
-          <i class="fas fa-blog"></i> View All Posts
-        </a>
+        <div class="view-all-container">
+          <a href="https://misslogs.klka.in" target="_blank" rel="noopener noreferrer" class="button">
+            <i class="fas fa-blog" aria-hidden="true"></i> 
+            <span>View All Posts</span>
+          </a>
+        </div>
       </div>
-     </section>
+    </section>
   </main>
   
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">
       <div class="social-icons">
-        <a href="https://github.com/kamalkoranga" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/kamalkoranga" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://x.com/klkaxkaal" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://github.com/kamalkoranga" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/kamalkoranga" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="https://x.com/klkaxkaal" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+        </a>
       </div>
       <div class="footer-nav">
         <ul>
@@ -203,11 +258,11 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Copyright &copy;<span id="year"></span>; Code by <span class="coder">klka</span></p>
+      <p>Copyright &copy;<span id="year"></span> Code by <span class="coder">klka</span></p>
     </div>
   </footer>
 
-  <script src="index.js"></script>
+  <script src="index.js" defer></script>
 </body>
 
 </html>
