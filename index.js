@@ -375,8 +375,7 @@ function init() {
   setupSmoothScroll();
   setupMobileMenuClose();
   
-  // Optional security measures (comment out if not needed)
-  // setupSecurityMeasures();
+  setupSecurityMeasures();
   
   // Load blog posts
   loadBlogPosts();
