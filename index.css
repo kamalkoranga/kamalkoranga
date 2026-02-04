@@ -1194,7 +1194,7 @@ h3 {
 
 .blogs {
   margin-top: 60px;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
 
   .blog-holder {
     border-radius: 30px;
@@ -1307,7 +1307,7 @@ h3 {
 /* ============================================ */
 
 .footer {
-  margin-top: clamp(80px, 15vw, 120px);
+  margin-top: clamp(80px, 15vw, 80px);
   background-color: var(--base-700);
 
   .footer-container {
