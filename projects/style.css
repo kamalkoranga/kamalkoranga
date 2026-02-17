@@ -273,6 +273,9 @@ nav {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card:hover {
@@ -309,6 +312,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 
 .project-title {
@@ -322,6 +326,7 @@ nav {
   color: var(--base-300);
   margin-bottom: 20px;
   line-height: 1.6;
+  text-align: center;
 }
 
 .project-tech {
@@ -342,6 +347,7 @@ nav {
 }
 
 .project-links {
+  margin-top: auto;
   display: flex;
   align-items: center;
   gap: 15px;
