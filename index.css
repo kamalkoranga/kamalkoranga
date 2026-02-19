@@ -1214,7 +1214,9 @@ h3 {
         padding: clamp(20px, 3vw, 30px);
         text-decoration: none;
         transition: all 0.3s ease;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
 
         &:hover,
         &:focus {
@@ -1239,6 +1241,7 @@ h3 {
           line-height: 1.6;
           letter-spacing: 0.2px;
           margin-bottom: 20px;
+          flex-grow: 1;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
@@ -1246,6 +1249,7 @@ h3 {
         }
 
         .blog-meta {
+          margin-top: auto;
           display: flex;
           justify-content: space-between;
           align-items: center;
