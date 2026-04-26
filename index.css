@@ -1297,6 +1297,21 @@ h3 {
   }
 }
 
+/* When 3 cards wrap into a 2 + 1 layout, center the last card on row 2. */
+@media (min-width: 722px) and (max-width: 1081px) {
+  .blogs {
+    .blog-holder {
+      .blog-grid {
+        > .blog-card:last-child:nth-child(odd) {
+          grid-column: 1 / -1;
+          justify-self: center;
+          width: min(100%, 520px);
+        }
+      }
+    }
+  }
+}
+
 /* ============================================ */
 /* VIEW ALL CONTAINERS */
 /* ============================================ */
