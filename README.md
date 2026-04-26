@@ -9,5 +9,6 @@
 - 🧑‍💻 Coded: [kaalpass](https://github.com/kamalkoranga/kaalpass), [ilearn-eslide-downloader](https://github.com/kamalkoranga/ilearn-eslide-downloader), [dochost](https://github.com/kamalkoranga/dochost), [daamusic](https://github.com/kamalkoranga/daamusic), [BinaryCSS](https://github.com/kamalkoranga/BinaryCSS), etc.
 - 💬 `ping` me about **hobby projects**, **python**, **development**, **design thinking**.
 
-<!-- ---
-Last updated: Tue Jun 24 01:01:15 UTC 2025 -->
+📕 &nbsp;**Latest Blog Posts**
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
