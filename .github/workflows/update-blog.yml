@@ -14,17 +14,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test curl
-        run: |
-          curl -v https://misslogs.klka.in/index.xml
-    
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.0
       
       - name: Clone blog repository
         run: |
           git clone https://x-access-token:${{ secrets.BLOG_TOKEN }}@github.com/kamalkoranga/blogs.git blog
 
-      - uses: peaceiris/actions-hugo@v3
+      - uses: peaceiris/actions-hugo@v3.2.1
         with:
           hugo-version: "latest"
           extended: true
@@ -34,7 +30,7 @@ jobs:
           cd blog
           hugo
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6.2.0
         with:
           python-version: "3.14"
 
