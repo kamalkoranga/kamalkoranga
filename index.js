@@ -211,7 +211,7 @@ async function loadBlogPosts() {
     const rawDesc = item.querySelector('description')?.textContent || '';
     const description = cleanText(rawDesc).substring(0, 150) + '...';
     const pubDate = formatDate(item.querySelector('pubDate')?.textContent);
-    const readTime = estimateReadTime(description);
+    const readTime = parseInt(item.querySelector('readingTime')?.textContent, 10) || 1;
 
     return `
       <a href="${link}" target="_blank" rel="noopener noreferrer" class="blog-card">
