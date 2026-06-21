@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Test curl
+        run: |
+          curl -v https://misslogs.klka.in/index.xml
+    
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
