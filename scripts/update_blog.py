@@ -3,7 +3,22 @@ import xml.etree.ElementTree as ET
 
 RSS_URL = "https://misslogs.klka.in/index.xml"
 
-response = requests.get(RSS_URL, timeout=15)
+headers = {
+    "User-Agent": (
+        "Mozilla/5.0 (X11; Linux x86_64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/137.0 Safari/537.36"
+    )
+}
+
+response = requests.get(
+    RSS_URL,
+    headers=headers,
+    timeout=15,
+)
+
+print(response.status_code)
+print(response.text[:300])
 response.raise_for_status()
 
 root = ET.fromstring(response.content)
