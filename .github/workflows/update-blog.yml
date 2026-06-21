@@ -19,13 +19,24 @@ jobs:
           curl -v https://misslogs.klka.in/index.xml
     
       - uses: actions/checkout@v4
+      
+      - name: Clone blog repository
+        run: |
+          git clone https://x-access-token:${{ secrets.BLOG_TOKEN }}@github.com/kamalkoranga/blogs.git blog
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Build Hugo
+        run: |
+          cd blog
+          hugo
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install requests
+          python-version: "3.14"
 
       - name: Update README
         run: python scripts/update_blog.py
@@ -34,9 +45,6 @@ jobs:
         run: |
           git config user.name "KLKA"
           git config user.email "83089446+kamalkoranga@users.noreply.github.com"
-
           git add README.md
-
           git diff --cached --quiet || git commit -m "Update latest blog posts"
-
           git push
