@@ -11,6 +11,7 @@
 
 📕 &nbsp;**Latest Blog Posts**
 <!-- BLOG-POST-LIST:START -->
+- [My First Post](https://misslogs.klka.in/journals/my-first-post/) • 1 min read
 - [Getting 80% Battery Limit Working on My Acer Aspire 5 (Fedora Atomic & CachyOS)](https://misslogs.klka.in/posts/acer-battery-limit-linux/) • 6 min read
 - [Flask-Mail SMTP Timeout on Render](https://misslogs.klka.in/posts/render-smtp-timeout/) • 2 min read
 - [CommitFill: Filling GitHub Contribution Gaps the Right Way](https://misslogs.klka.in/posts/commitfill/) • 2 min read
